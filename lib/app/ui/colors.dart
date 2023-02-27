@@ -21,6 +21,11 @@ class AppColors {
   static const Color primaryYellowColor = Color(0xFFF77777);
 
   static const Color blue = Colors.blue;
+  static const Color colorE5E5E5 = Color(0xFFE5E5E5);
+  static const Color colorB2B2B2 =  Color(0xFFB2B2B2);
+  static const Color color07C160 =  Color(0xFF07C160);
+  static const Color color9B9B9B =  Color(0xFF9B9B9B);
+  static const Color color007AFF =  Color(0xFF007AFF);
 
   // --------------------上面是正在使用颜色----------------
 

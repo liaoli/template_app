@@ -1,8 +1,9 @@
 
 import 'package:get/get.dart';
 
-import '../../module/login/login_page.dart';
+
 import '../../module/main/main.dart';
+import '../../module/register/login_page.dart';
 
 class RouteConfig {
   ///主页面
