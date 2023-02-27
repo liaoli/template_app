@@ -52,7 +52,7 @@ class NetUtil {
     // 添加异常拦截器
     dio.interceptors.add(ErrorInterceptor());
     // 添加日志拦截器
-    dio.interceptors.add(LogInterceptor());
+    dio.interceptors.add(LogInterceptor(requestBody: true,responseBody: true));
 
     // 在调试模式下需要抓包调试，所以我们使用代理，并禁用HTTPS证书校验
     if (NetConfig.proxyEnable) {

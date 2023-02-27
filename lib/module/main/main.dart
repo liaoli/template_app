@@ -7,9 +7,14 @@ class MainPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Center(
-        child: Text(
-          "main page",
-          style: TextStyle(color: Colors.blue),
+        child: GestureDetector(
+          child: Text(
+            "main page",
+            style: TextStyle(color: Colors.blue),
+          ),
+          onTap: () {
+
+          },
         ),
       ),
     );
