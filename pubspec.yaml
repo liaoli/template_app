@@ -34,6 +34,23 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  # getx 状态管理框架 https://pub.flutter-io.cn/packages/get
+  get: 4.6.5
+  # 状态管理框架 https://pub.dev/packages/flutter_bloc
+  flutter_bloc:
+  # 状态管理框架 https://pub.dev/packages/provider
+  provider:
+  # 网络请求 https://pub.flutter-io.cn/packages/dio
+  dio:
+  # https://pub.flutter-io.cn/packages/logger
+  logger:
+  # 设置桌面端: https://pub.dev/packages/window_manager
+  window_manager: 0.2.8
+  # 弹窗控件 https://github.com/CNAD666/flutter_smart_dialog
+  flutter_smart_dialog: 4.7.1
+
+dependency_overrides:
+  path: ^1.8.1
 
 dev_dependencies:
   flutter_test:
