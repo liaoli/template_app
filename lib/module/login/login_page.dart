@@ -1,10 +1,8 @@
 
 import 'package:flutter/material.dart';
 
-
-
+import '../../app/ui/auto_ui.dart';
 import '../../app/ui/colors.dart';
-import '../../app/ui/text_style.dart';
 import '../../toolkit/view/button/long_button.dart';
 import '../main/main.dart';
 import 'user_provider.dart';
@@ -96,20 +94,20 @@ class _LoginFormState extends State<LoginPage>  {
                     height: MediaQuery.of(context).size.height * 0.25,
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children:  [
                           Image(
                             image: AssetImage("assets/images/ic_launcher.png"),
-                            width: 72,
-                            height: 72,
+                            width:  72.dp,
+                            height: 72.dp,
                             fit: BoxFit.fill,
                           ),
                           SizedBox(
                             height: 8,
                           ),
                           Text(
-                            'ERP',
+                            'Flutter',
                             style: TextStyle(
-                              fontSize: 16,
+                              fontSize: 16.sp,
                               fontWeight: FontWeight.normal,
                               color: AppColors.blue,
                             ),
@@ -122,7 +120,7 @@ class _LoginFormState extends State<LoginPage>  {
                 ),
                 _buildPhoneInput(),
                 SizedBox(
-                  height: 20,
+                  height: 20.dp,
                 ),
                 _buildPasswordInput(),
                 // 登录按钮
@@ -134,17 +132,6 @@ class _LoginFormState extends State<LoginPage>  {
                   ),
                 ),
 
-                InkWell(
-                  child: Center(
-                    child: Text(
-                      '钉钉登录',
-                      style: commonBlueTextStyle,
-                    ),
-                  ),
-                  onTap: () {
-
-                  },
-                ),
                 SizedBox(
                   height: 28,
                 ),
@@ -177,7 +164,7 @@ class _LoginFormState extends State<LoginPage>  {
                       child: Text(
                         '新用户注册',
                         style: TextStyle(
-                          fontSize: 14,
+                          fontSize: 28.sp,
                           color: Color.fromRGBO(18, 18, 18, 1),
                         ),
                       ),
@@ -257,7 +244,7 @@ class _LoginFormState extends State<LoginPage>  {
               borderSide: BorderSide.none),
           filled: true,
           fillColor: Color.fromRGBO(245, 247, 247, 1),
-          hintText: "请输入密码",
+          hintText: "请输入密码/验证码",
           prefixIcon: Icon(Icons.password
           ),
         ),
