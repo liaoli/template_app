@@ -41,7 +41,7 @@ dependencies:
   # 状态管理框架 https://pub.dev/packages/provider
   provider:
   # 网络请求 https://pub.flutter-io.cn/packages/dio
-  dio:
+  dio: ^4.0.6
   # https://pub.flutter-io.cn/packages/logger
   logger:
   # 设置桌面端: https://pub.dev/packages/window_manager
