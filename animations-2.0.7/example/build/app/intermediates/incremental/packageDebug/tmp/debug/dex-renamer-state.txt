@@ -1,0 +1,4 @@
+#Wed Mar 01 09:16:49 CST 2023
+base.0=/Users/hfy/AndroidStudioProjects/animations-2.0.7/example/build/app/intermediates/dex/debug/mergeDexDebug/out/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
