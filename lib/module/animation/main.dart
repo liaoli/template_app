@@ -1,6 +1,8 @@
+import 'package:animations/animations.dart';
 import 'package:flutter/material.dart';
 import 'package:template_app/module/animation/second.dart';
 
+import '../../toolkit/view/base_open_container_wrapper.dart';
 import 'my_rect_tween.dart';
 
 void main() {
@@ -53,47 +55,59 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget item() {
-    return GestureDetector(
-      child: Container(
-        width: 100,
-        clipBehavior: Clip.hardEdge,
-        decoration: BoxDecoration(
-            color: Color(0xffBB8045),
-            borderRadius: BorderRadius.circular(10),
-            boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)]),
-        child: Stack(
-          children: [
-            const Image(
-                width: 100,
-                height: 120,
-                image: AssetImage('assets/images/img.png'),
-                fit: BoxFit.cover),
-            Container(
-                margin: EdgeInsets.only(top: 80),
-                child: Container(
-                    width: 120,
-                    height: 100,
-                    decoration: const BoxDecoration(
-                        gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [Colors.transparent, Color(0xffBB8045)])))),
-            const Positioned(
-                top: 120,
-                left: 10,
-                child: Text(
-                  '今日作品',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold),
-                )),
-          ],
-        ),
-      ),
-      onTap: () {
-        _startHeroAnimation(context);
+    return OpenContainerWrapper(
+      openBuilder: (BuildContext context, VoidCallback _) {
+        return FlutterHeroAnimationSecondPage();
+        // return CustomText();
       },
+      transitionType: ContainerTransitionType.fade,
+      closedBuilder: (BuildContext _, VoidCallback openContainer) {
+        return GestureDetector(
+          child: Container(
+            width: 100,
+            clipBehavior: Clip.hardEdge,
+            decoration: BoxDecoration(
+                color: Color(0xffBB8045),
+                borderRadius: BorderRadius.circular(10),
+                boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)]),
+            child: Stack(
+              children: [
+                const Image(
+                    width: 100,
+                    height: 120,
+                    image: AssetImage('assets/images/img.png'),
+                    fit: BoxFit.cover),
+                Container(
+                    margin: EdgeInsets.only(top: 80),
+                    child: Container(
+                        width: 120,
+                        height: 100,
+                        decoration: const BoxDecoration(
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: [
+                              Colors.transparent,
+                              Color(0xffBB8045)
+                            ])))),
+                const Positioned(
+                    top: 120,
+                    left: 10,
+                    child: Text(
+                      '今日作品',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold),
+                    )),
+              ],
+            ),
+          ),
+          onTap: openContainer,
+        );
+        ;
+      },
+      onClosed: showMarkedAsDoneSnackbar,
     );
   }
 

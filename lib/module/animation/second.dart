@@ -84,7 +84,7 @@ class _FlutterHeroAnimationSecondPageState
             child: Transform.scale(
               scale: verticalDragUpdate,
               child: Material(
-                color: Colors.white,
+                color: Color.fromARGB((verticalDragUpdate * 255).toInt(), 255, 255, 255),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -133,7 +133,6 @@ class _FlutterHeroAnimationSecondPageState
                     Expanded(
                         child: Container(
                       width: double.infinity,
-                      color: Colors.white,
                       child: Text('.....'),
                     ))
                   ],

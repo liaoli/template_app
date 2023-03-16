@@ -50,6 +50,8 @@ dependencies:
   flutter_smart_dialog: 4.7.1
   # 缓存数据https://pub.flutter-io.cn/packages/shared_preferences
   shared_preferences: ^2.0.18
+  animations:
+    path: ./animations-2.0.7
 
 dependency_overrides:
   path: ^1.8.1
