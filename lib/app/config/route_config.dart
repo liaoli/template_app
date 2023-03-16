@@ -3,6 +3,9 @@ import 'package:get/get.dart';
 
 
 import '../../module/main/main.dart';
+import '../../module/register/animation_demo.dart';
+import '../../module/register/gesture_hero.dart';
+import '../../module/register/login/self_hero.dart';
 import '../../module/register/login_page.dart';
 
 class RouteConfig {
@@ -23,6 +26,9 @@ class RouteConfig {
   ///别名映射页面
   static final List<GetPage> getPages = [
     // GetPage(name: main, page: () => MainPage()),
-    GetPage(name: main, page: () => LoginPage()),
+    // GetPage(name: main, page: () => LoginPage()),
+    // GetPage(name: main, page: () => GestureHeroList()),
+    // GetPage(name: main, page: () => AnimationDemo()),
+    GetPage(name: main, page: () => CustomRectTweenHero()),
   ];
 }
