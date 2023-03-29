@@ -52,6 +52,8 @@ dependencies:
   shared_preferences: ^2.0.18
   animations:
     path: ./animations-2.0.7
+  custom_pop_up_menu: ^1.2.4
+  flutter_advanced_segment: ^3.0.1
 
 dependency_overrides:
   path: ^1.8.1

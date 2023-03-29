@@ -64,6 +64,13 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.5"
+  custom_pop_up_menu:
+    dependency: "direct main"
+    description:
+      name: custom_pop_up_menu
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "1.2.4"
   dio:
     dependency: "direct main"
     description:
@@ -97,6 +104,13 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_advanced_segment:
+    dependency: "direct main"
+    description:
+      name: flutter_advanced_segment
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "3.0.1"
   flutter_bloc:
     dependency: "direct main"
     description:

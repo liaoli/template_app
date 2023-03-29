@@ -56,11 +56,15 @@ class _FlutterHeroAnimationSecondPageState
             return;
           }
 
+
+
           var offsetNum = 200 / (detail.localPosition.dy - verticalDragStart);
           print('offsetNum: $offsetNum');
 
           print(' detail.delta.dy: ${detail.delta.dy}');
           print(' detail.delta.dx: ${detail.delta.dx}');
+
+         if( offsetNum >1 ) offsetNum =1;
 
           if (offsetNum < 0.4) {
             Navigator.pop(context);
