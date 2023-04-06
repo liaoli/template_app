@@ -4,7 +4,8 @@ import 'package:flutter/rendering.dart';
 import '../register/login/self_hero.dart';
 
 class FlutterHeroAnimationSecondPage extends StatefulWidget {
-  const FlutterHeroAnimationSecondPage({Key? key}) : super(key: key);
+  final int index;
+  const FlutterHeroAnimationSecondPage({Key? key,required this.index}) : super(key: key);
 
   @override
   State<FlutterHeroAnimationSecondPage> createState() =>
@@ -32,7 +33,6 @@ class _FlutterHeroAnimationSecondPageState
     return Scaffold(
       backgroundColor: Color(0x00000000),
       body: GestureDetector(
-
         onVerticalDragStart: (detail) {
           mill = DateTime.now().millisecondsSinceEpoch;
 
@@ -56,15 +56,13 @@ class _FlutterHeroAnimationSecondPageState
             return;
           }
 
-
-
           var offsetNum = 200 / (detail.localPosition.dy - verticalDragStart);
           print('offsetNum: $offsetNum');
 
           print(' detail.delta.dy: ${detail.delta.dy}');
           print(' detail.delta.dx: ${detail.delta.dx}');
 
-         if( offsetNum >1 ) offsetNum =1;
+          if (offsetNum > 1) offsetNum = 1;
 
           if (offsetNum < 0.4) {
             Navigator.pop(context);
@@ -88,7 +86,8 @@ class _FlutterHeroAnimationSecondPageState
             child: Transform.scale(
               scale: verticalDragUpdate,
               child: Material(
-                color: Color.fromARGB((verticalDragUpdate * 255).toInt(), 255, 255, 255),
+                color: Color.fromARGB(
+                    (verticalDragUpdate * 255).toInt(), 255, 255, 255),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
@@ -101,12 +100,17 @@ class _FlutterHeroAnimationSecondPageState
                       child: Stack(
                         children: [
                           Container(
+                            child: Hero(
+                              tag: "${widget.index}",
                               child: Image(
-                            height: MediaQuery.of(context).size.width * 6 / 5,
-                            width: MediaQuery.of(context).size.width,
-                            image: AssetImage('assets/images/img.png'),
-                            fit: BoxFit.cover,
-                          )),
+                                height:
+                                    MediaQuery.of(context).size.width * 6 / 5,
+                                width: MediaQuery.of(context).size.width,
+                                image: AssetImage('assets/images/img.png'),
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
                           Positioned(
                               top: 50,
                               right: 10,

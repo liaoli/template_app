@@ -39,91 +39,144 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Row(
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          Expanded(child: ListView(
+            scrollDirection: Axis.horizontal,
             children: [
-              item(),
-              item(),
-              item(),
+              item(1),
+              item(2),
+              item(3),
             ],
-          ),
+          ),),
         ],
       ),
     );
   }
 
-  Widget item() {
-    return OpenContainerWrapper(
-      openBuilder: (BuildContext context, VoidCallback _) {
-        return FlutterHeroAnimationSecondPage();
-        // return CustomText();
-      },
-      transitionType: ContainerTransitionType.fade,
-      closedBuilder: (BuildContext _, VoidCallback openContainer) {
-        return GestureDetector(
-          child: Container(
-            width: 100,
-            clipBehavior: Clip.hardEdge,
-            decoration: BoxDecoration(
-                color: Color(0xffBB8045),
-                borderRadius: BorderRadius.circular(10),
-                boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)]),
-            child: Stack(
-              children: [
-                const Image(
-                    width: 100,
-                    height: 120,
-                    image: AssetImage('assets/images/img.png'),
-                    fit: BoxFit.cover),
-                Container(
-                    margin: EdgeInsets.only(top: 80),
-                    child: Container(
-                        width: 120,
-                        height: 100,
-                        decoration: const BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: [
+  Widget item(int index) {
+
+    return GestureDetector(
+      child: Container(
+        width: 100,
+        clipBehavior: Clip.hardEdge,
+        decoration: BoxDecoration(
+            color: Color(0xffBB8045),
+            borderRadius: BorderRadius.circular(10),
+            boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)]),
+        child: Stack(
+          children: [
+             Hero(tag: "$index", child: Image(
+                width: 100,
+                height: 120,
+                image: AssetImage('assets/images/img.png'),
+                fit: BoxFit.cover),),
+            Container(
+                margin: EdgeInsets.only(top: 80),
+                child: Container(
+                    width: 120,
+                    height: 100,
+                    decoration: const BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: [
                               Colors.transparent,
                               Color(0xffBB8045)
                             ])))),
-                const Positioned(
-                    top: 120,
-                    left: 10,
-                    child: Text(
-                      '今日作品',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 15,
-                          fontWeight: FontWeight.bold),
-                    )),
-              ],
-            ),
-          ),
-          onTap: openContainer,
-        );
-        ;
+            const Positioned(
+                top: 120,
+                left: 10,
+                child: Text(
+                  '今日作品',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold),
+                )),
+          ],
+        ),
+      ),
+      onTap: (){
+        _startHeroAnimation(context,index);
       },
-      onClosed: showMarkedAsDoneSnackbar,
     );
+
+    // return OpenContainerWrapper(
+    //   openBuilder: (BuildContext context, VoidCallback _) {
+    //     return FlutterHeroAnimationSecondPage();
+    //     // return CustomText();
+    //   },
+    //   transitionType: ContainerTransitionType.fade,
+    //   closedBuilder: (BuildContext _, VoidCallback openContainer) {
+    //     return GestureDetector(
+    //       child: Container(
+    //         width: 100,
+    //         clipBehavior: Clip.hardEdge,
+    //         decoration: BoxDecoration(
+    //             color: Color(0xffBB8045),
+    //             borderRadius: BorderRadius.circular(10),
+    //             boxShadow: [BoxShadow(color: Colors.black26, blurRadius: 5)]),
+    //         child: Stack(
+    //           children: [
+    //             const Image(
+    //                 width: 100,
+    //                 height: 120,
+    //                 image: AssetImage('assets/images/img.png'),
+    //                 fit: BoxFit.cover),
+    //             Container(
+    //                 margin: EdgeInsets.only(top: 80),
+    //                 child: Container(
+    //                     width: 120,
+    //                     height: 100,
+    //                     decoration: const BoxDecoration(
+    //                         gradient: LinearGradient(
+    //                             begin: Alignment.topCenter,
+    //                             end: Alignment.bottomCenter,
+    //                             colors: [
+    //                           Colors.transparent,
+    //                           Color(0xffBB8045)
+    //                         ])))),
+    //             const Positioned(
+    //                 top: 120,
+    //                 left: 10,
+    //                 child: Text(
+    //                   '今日作品',
+    //                   style: TextStyle(
+    //                       color: Colors.white,
+    //                       fontSize: 15,
+    //                       fontWeight: FontWeight.bold),
+    //                 )),
+    //           ],
+    //         ),
+    //       ),
+    //       onTap: openContainer,
+    //     );
+    //     ;
+    //   },
+    //   onClosed: showMarkedAsDoneSnackbar,
+    // );
   }
 
-  void _startHeroAnimation(BuildContext context) {
-    // Navigator.push(context, PageRouteBuilder(opaque:false,pageBuilder: (BuildContext context,
-    //     Animation<double> animation, Animation<double> secondaryAnimation) {
-    //   return FadeTransition(
-    //     opacity: animation,
-    //     child: FlutterHeroAnimationSecondPage(),
-    //   );
-    // }));
-    Navigator.push(
-        context,
-        PopRoute(
-          child: FlutterHeroAnimationSecondPage(),
-        ));
+  void _startHeroAnimation(BuildContext context,int index) {
+    Navigator.push(context, PageRouteBuilder(opaque:false,pageBuilder: (BuildContext context,
+        Animation<double> animation, Animation<double> secondaryAnimation) {
+
+      final curvedAnimation = CurvedAnimation(
+        parent: animation,
+        curve: Interval(0, 0.5),
+      );
+
+      return FadeTransition(
+        opacity: curvedAnimation,
+        child: FlutterHeroAnimationSecondPage(index: index,),
+      );
+    }));
+
+
+    // Navigator.push(
+    //     context,
+    //     PopRoute(
+    //       child: FlutterHeroAnimationSecondPage(index: index,),
+    //     ));
   }
 }
 
