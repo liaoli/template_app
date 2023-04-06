@@ -5,7 +5,9 @@ import '../register/login/self_hero.dart';
 
 class FlutterHeroAnimationSecondPage extends StatefulWidget {
   final int index;
-  const FlutterHeroAnimationSecondPage({Key? key,required this.index}) : super(key: key);
+
+  const FlutterHeroAnimationSecondPage({Key? key, required this.index})
+      : super(key: key);
 
   @override
   State<FlutterHeroAnimationSecondPage> createState() =>
@@ -128,13 +130,16 @@ class _FlutterHeroAnimationSecondPageState
                                 ),
                               )),
                           Positioned(
-                              top: 250,
-                              left: 10,
-                              child: Text('今日作品',
-                                  style: TextStyle(
-                                      fontSize: 30,
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold)))
+                            top: 250,
+                            left: 10,
+                            child: Text(
+                              '今日作品',
+                              style: TextStyle(
+                                  fontSize: 30,
+                                  color: Colors.black,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
                         ],
                       ),
                     ),

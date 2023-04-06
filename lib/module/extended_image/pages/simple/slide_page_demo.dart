@@ -101,6 +101,8 @@ class _SlidePageState extends State<SlidePage> {
       color: Colors.transparent,
       child: ExtendedImageSlidePage(
         key: slidePagekey,
+        slideAxis: SlideAxis.both,
+        slideType: SlideType.onlyImage,
         child: GestureDetector(
           child: widget.url == 'This is an video'
               ? ExtendedImageSlidePageHandler(
@@ -133,21 +135,19 @@ class _SlidePageState extends State<SlidePage> {
                   },
                 )
               : HeroWidget(
+                  tag: widget.url!,
+                  slideType: SlideType.onlyImage,
+                  slidePagekey: slidePagekey,
                   child: ExtendedImage.network(
                     widget.url!,
                     enableSlideOutPage: true,
                   ),
-                  tag: widget.url!,
-                  slideType: SlideType.onlyImage,
-                  slidePagekey: slidePagekey,
                 ),
           onTap: () {
             slidePagekey.currentState!.popPage();
             Navigator.pop(context);
           },
         ),
-        slideAxis: SlideAxis.both,
-        slideType: SlideType.onlyImage,
       ),
     );
   }
