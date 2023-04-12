@@ -84,6 +84,9 @@ dependencies:
   url_launcher: ^6.0.20
   vm_service: ^9.3.0
   wechat_assets_picker: ^8.0.2
+  flutter_swiper_view: ^1.1.8
+  full_screen_back_gesture: ^0.0.2
+  swipe_back_detector: ^2.0.0
 
 
 
