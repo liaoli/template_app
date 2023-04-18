@@ -41,7 +41,7 @@ class _DetailPageState extends State<DetailPage> {
                 valueListenable: isSliding,
                 builder: (BuildContext context, double value, Widget? child) {
                   return Opacity(
-                    opacity: value != 0  ? 0 : 1,
+                    opacity: value != 0 ? 0 : 1,
                     child: ListView(
                       children: [
                         ExtendedImage.network(

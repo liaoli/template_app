@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:template_app/module/animation/second.dart';
+
+import 'second.dart';
 
 void main() {
   runApp(const MyApp());
