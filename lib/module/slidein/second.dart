@@ -76,13 +76,10 @@ class _FlutterHeroAnimationSecondPageState
             verticalDragUpdate += offsetNum;
           });
 
-
           // print('update: ${detail.localPosition}');
         },
-
-        onHorizontalDragEnd:(detail) {
-
-          if(verticalDragUpdate > MediaQuery.of(context).size.width/3 ){
+        onHorizontalDragEnd: (detail) {
+          if (verticalDragUpdate > MediaQuery.of(context).size.width / 3) {
             Navigator.pop(context);
             return;
           }
@@ -91,17 +88,8 @@ class _FlutterHeroAnimationSecondPageState
             verticalDragUpdate = 0.0;
           });
         },
-
         onHorizontalDragUpdate: (DragUpdateDetails detail) {
-          // if (detail.delta.dy <= 0) {
-          //   return;
-          // }
 
-          // int deltTime = DateTime.now().millisecondsSinceEpoch - mill;
-          // print('deltTime: $deltTime');
-          // if (deltTime < 800) {
-          //   return;
-          // }
 
           var offsetNum = detail.delta.dx;
           print('offsetNum: $offsetNum');
@@ -109,24 +97,14 @@ class _FlutterHeroAnimationSecondPageState
           print(' detail.delta.dy: ${detail.delta.dy}');
           print(' detail.delta.dx: ${detail.delta.dx}');
 
-          // if (offsetNum > 1) offsetNum = 1;
-          //
-          // if (offsetNum < 0.4) {
-          //   Navigator.pop(context);
-          // } else {
-          //
-          // }
-
 
 
           setState(() {
             verticalDragUpdate += offsetNum;
           });
 
-
           // print('update: ${detail.localPosition}');
         },
-
         child: Center(
           child: SizedBox(
             // width:
@@ -140,8 +118,7 @@ class _FlutterHeroAnimationSecondPageState
               offset: Offset(verticalDragUpdate, 0),
               child: Material(
                 color: Color.fromARGB(255, 255, 255, 255),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                child: ListView(
                   children: [
                     Container(
                       height: MediaQuery.of(context).size.width * 6 / 5,
@@ -193,11 +170,25 @@ class _FlutterHeroAnimationSecondPageState
                         ],
                       ),
                     ),
-                    Expanded(
-                        child: Container(
+                    Container(
+                      height: 400,
+                      color: Colors.blue,
                       width: double.infinity,
                       child: Text('.....'),
-                    ))
+                    ),
+                    Container(
+                      height: 400,
+                      color: Colors.green,
+                      width: double.infinity,
+                      child: Text('.....'),
+                    ),
+                    Container(
+                      height: 400,
+                      color: Colors.red,
+                      width: double.infinity,
+                      child: Text('.....'),
+                    ),
+
                   ],
                 ),
               ),

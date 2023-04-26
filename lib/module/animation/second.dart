@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:template_app/app/ui/colors.dart';
 
 import '../register/login/self_hero.dart';
 
@@ -33,7 +34,7 @@ class _FlutterHeroAnimationSecondPageState
     }
 
     return Scaffold(
-      backgroundColor: Color(0x00000000),
+      backgroundColor: Colors.transparent,
       body: GestureDetector(
         onVerticalDragStart: (detail) {
           mill = DateTime.now().millisecondsSinceEpoch;
