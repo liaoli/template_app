@@ -87,6 +87,7 @@ dependencies:
   flutter_swiper_view: ^1.1.8
   full_screen_back_gesture: ^0.0.2
   swipe_back_detector: ^2.0.0
+  flutter_html: ^2.2.1
 
 
 
@@ -119,6 +120,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
+    - assets/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

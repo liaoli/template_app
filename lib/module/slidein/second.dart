@@ -89,15 +89,11 @@ class _FlutterHeroAnimationSecondPageState
           });
         },
         onHorizontalDragUpdate: (DragUpdateDetails detail) {
-
-
           var offsetNum = detail.delta.dx;
           print('offsetNum: $offsetNum');
 
           print(' detail.delta.dy: ${detail.delta.dy}');
           print(' detail.delta.dx: ${detail.delta.dx}');
-
-
 
           setState(() {
             verticalDragUpdate += offsetNum;
@@ -141,21 +137,22 @@ class _FlutterHeroAnimationSecondPageState
                             ),
                           ),
                           Positioned(
-                              top: 50,
-                              right: 10,
-                              child: GestureDetector(
-                                onTap: () {
-                                  Navigator.pop(context);
-                                },
-                                child: Container(
-                                  width: 40,
-                                  height: 40,
-                                  decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(40),
-                                      color: Color(0x5feeeeee)),
-                                  child: Icon(Icons.close),
-                                ),
-                              )),
+                            top: 50,
+                            right: 10,
+                            child: GestureDetector(
+                              onTap: () {
+                                Navigator.pop(context);
+                              },
+                              child: Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(40),
+                                    color: Color(0x5feeeeee)),
+                                child: Icon(Icons.close),
+                              ),
+                            ),
+                          ),
                           Positioned(
                             top: 250,
                             left: 10,
@@ -188,7 +185,6 @@ class _FlutterHeroAnimationSecondPageState
                       width: double.infinity,
                       child: Text('.....'),
                     ),
-
                   ],
                 ),
               ),

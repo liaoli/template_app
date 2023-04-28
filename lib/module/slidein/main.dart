@@ -34,20 +34,27 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Colors.yellow,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Row(
-              children: [
-                item(1),
-                item(2),
-                item(3),
-              ],
-            ),
-            StateButton(),
-          ],
+      body: Listener(
+        onPointerDown: (PointerDownEvent event){
+
+          debugPrint("pressure: ${event.pressure}");
+
+        },
+        child: Container(
+          color: Colors.yellow,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  item(1),
+                  item(2),
+                  item(3),
+                ],
+              ),
+              StateButton(),
+            ],
+          ),
         ),
       ),
     );
